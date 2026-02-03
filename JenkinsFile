@@ -4,25 +4,28 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Checkout stage completed'
+                echo 'Checkout completed'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build stage completed'
+                echo 'Build completed'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Test stage completed'
+                sh 'echo "Test executed successfully" > test-result.txt'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploy stage completed (simulated)'
+                sh '''
+                mkdir -p deployed_files
+                cp test-result.txt deployed_files/
+                '''
             }
         }
     }
