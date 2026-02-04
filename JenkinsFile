@@ -28,11 +28,10 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh '''
-                cp test-result.txt /opt/homebrew/var/www/
-                '''
-            }
-        }
+    steps {
+        sh '''
+        cp test-result.txt /opt/homebrew/opt/nginx/html/
+        '''
     }
 }
+
