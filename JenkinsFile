@@ -23,15 +23,14 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'echo "Test executed successfully" > test-result.txt'
+                sh 'echo "This is a Test" > test-result.txt'
             }
         }
 
         stage('Deploy') {
             steps {
                 sh '''
-                mkdir -p deployed_files
-                cp test-result.txt deployed_files/
+                cp test-result.txt /opt/homebrew/var/www/
                 '''
             }
         }
