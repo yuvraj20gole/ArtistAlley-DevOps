@@ -30,11 +30,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                cp test-result.txt /opt/homebrew/opt/nginx/html/
+                mkdir -p /usr/local/opt/nginx/html
+                cp test-result.txt /usr/local/opt/nginx/html/
                 '''
             }
         }
     }
 }
+
 
 
