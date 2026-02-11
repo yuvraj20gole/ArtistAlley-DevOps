@@ -11,6 +11,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
+                checkout scm
                 echo 'Checkout completed'
             }
         }
@@ -30,13 +31,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                mkdir -p /usr/local/opt/nginx/html
-                cp test-result.txt /usr/local/opt/nginx/html/
+                mkdir -p /usr/local/var/www
+                cp test-result.txt /usr/local/var/www/
                 '''
             }
         }
     }
 }
-
-
 
